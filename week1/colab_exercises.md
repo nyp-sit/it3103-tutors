@@ -38,3 +38,18 @@ Choose different combinations of features (e.g. X1X2, X12, sin(X1), etc), and re
 - What do you observe?
 
 
+## Using Google Collaboratory (or Colab in short) 
+
+Visit the following URLs for some hands-on sessions with Google Colaboratory
+
+- https://colab.research.google.com/notebooks/intro.ipynb
+- https://colab.research.google.com/notebooks/basic_features_overview.ipynb
+- https://colab.research.google.com/notebooks/snippets/importing_libraries.ipynb
+- https://colab.research.google.com/notebooks/io.ipynb
+- https://colab.research.google.com/notebooks/gpu.ipynb
+
+
+
+
+
+
