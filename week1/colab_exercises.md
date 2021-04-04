@@ -4,7 +4,7 @@
 
 ### Task 1
 
-Use ![dataset2](images/dataset2.png) as data set
+Use <img heigth=50 width=50 src="images/dataset2.png"/> as data set
 
 Choose X1 and X2 as input features and choose Linear activation function. Use a single neuron (in a single layer). 
 - Can the network classify the data points? 
