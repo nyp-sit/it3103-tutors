@@ -2,11 +2,39 @@
 
 ## Tensorflow Playground 
 
+Visit the URL: 
+
 ### Task 1
 
-Use <img heigth=50 width=50 src="images/dataset2.png"/> as data set
+Use <img heigth=25 width=25 src="images/dataset1.png"/> as data set
+
+Choose X1 and X2 as input features and choose Linear activation function. Use a single neuron (in a single layer). 
+- Can the network classify the data points? 
+
+### Task 2 
+
+Use <img heigth=25 width=25 src="images/dataset2.png"/> as data set
 
 Choose X1 and X2 as input features and choose Linear activation function. Use a single neuron (in a single layer). 
 - Can the network classify the data points? 
 - Increase the neurons in a single layer. What happens? 
 - Increase the number of layers. What happens?
+
+Now choose RELU as activation function. Use a single neuron (in a single layer). 
+
+- Can the network classify the data points? 
+- Try to restart the network training, what do you observe? 
+- Try increasing number of neurons in a single layer, what do you observe? 
+- Try increasing the number of layers, what do you observe? 
+
+### Task 3
+
+Use <img heigth=25 width=25 src="images/dataset3.png"/> as data set
+
+Choose X1 and X2 asinput features. Choose RELU activation function. Try with different number of neurons and with different number of layers
+- What do you observe? 
+
+Choose different combinations of features (e.g. X1X2, X12, sin(X1), etc), and re-run the network. 
+- What do you observe?
+
+
