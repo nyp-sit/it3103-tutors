@@ -37,7 +37,7 @@ Use <img heigth=25 width=25 src="images/dataset3.png"/> as data set
 Choose X1 and X2 asinput features. Choose RELU activation function. Try with different number of neurons and with different number of layers
 - What do you observe? 
 
-Choose different combinations of features (e.g. X1X2, X12, sin(X1), etc), and re-run the network. 
+Choose different combinations of features (e.g. X1X2, X1^2, sin(X1), etc), and re-run the network. 
 - What do you observe?
 
 
