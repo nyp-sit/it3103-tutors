@@ -13,8 +13,7 @@ Use <img heigth=25 width=25 src="images/dataset1.png"/> as data set
 
 Choose X1 and X2 as input features and choose Linear activation function. Use a single neuron (in a single layer). 
 - Can the network classify the data points? 
-- Increase the neurons in a single layer. What happens? 
-- Increase the number of layers. What happens?
+
 
 ### Task 2 
 
