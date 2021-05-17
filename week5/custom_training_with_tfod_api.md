@@ -61,7 +61,7 @@ and configured. Make sure you use the ``tf2env`` conda environment, i..e in your
 As we will be dealing with a lot of different files, such as training config files, models, annotation files and images, it is important to have certain folder structure to organise all of these. A project folder has been created for you and you can copy the folder ``balloon_project`` from  IT3103 git repo to the home folder. By default, your IT3103 git is located at ``/home/ubuntu/temp-git ``. Run the following command to copy the folder: 
 
 ```
-cp ~/temp-git/it3103/week5/balloon_project ~/balloon_project
+cp -r ~/temp-git/it3103/week5/balloon_project ~/balloon_project
 
 ```
 
