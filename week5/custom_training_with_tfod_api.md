@@ -238,7 +238,7 @@ mkdir ~/balloon_project/models/ssd_mobilenet_v2_320x320_coco17_tpu-8/
 cp ~/balloon_project/pretrained-models/ssd_mobilenet_v2_320x320_coco17_tpu-8/pipeline.config ~/balloon_project/models/ssd_mobilenet_v2_320x320_coco17_tpu-8/pipeline.config
 ```
 
-Open the ``pipeline.config`` file located in ``pretrained-models/ssd_mobilenet_v2_320x320_coco17_tpu-8`` directory with an editor and modify the following sections:
+Open the ``pipeline.config`` file located in ``models/ssd_mobilenet_v2_320x320_coco17_tpu-8`` directory with an editor and modify the following sections:
 
 ```
 model {
