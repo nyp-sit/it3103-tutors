@@ -492,10 +492,11 @@ Now you are ready to test your trained model. Run the provided notebook `od_cust
 
 ### Using our pre-trained model 
 
-We have already trained the balloon detector on a GPU server. You can try out our trained model. Change directory to your home directory and download our models using: 
+We have already trained the balloon detector on a GPU server. You can try out our trained model. Change directory to your balloon project directory and download our model using: 
 
 ```
-wget https://nyp-aicourse.s3-ap-southeast-1.amazonaws.com/pretrained-models/balloon_model.tar.gz
+wget https://nyp-aicourse.s3-ap-southeast-1.amazonaws.com/pretrained-models/balloon_model.tar.gz -C exported-models/ssd_mobilenet_v2_320x320_coco17_tpu-8
+
 tar xzvf balloon_model.tar.gz
 ```
 
