@@ -488,7 +488,7 @@ In this version of TFOD, during the training loop, a checkpoint is created every
 
 ## Test your custom model
 
-Now you are ready to test your trained model. Run the provided notebook `od_custom_model.ipynb`  to run your raccoon detector!
+Now you are ready to test your trained model. Run the provided notebook `detect_balloon.ipynb`  to run your balloon detector!
 
 ### Using our pre-trained model 
 
