@@ -495,8 +495,8 @@ Now you are ready to test your trained model. Run the provided notebook `od_cust
 We have already trained the balloon detector on a GPU server. You can try out our trained model. Change directory to your home directory and download our models using: 
 
 ```
-wget https://nyp-aicourse.s3-ap-southeast-1.amazonaws.com/pretrained-weights/it3103/week5/balloon_model.tar.gz
-tar -xvf balloon_model.tar.gz
+wget https://nyp-aicourse.s3-ap-southeast-1.amazonaws.com/pretrained-models/balloon_model.tar.gz
+tar xzvf balloon_model.tar.gz
 ```
 
 After unzip and untar, you will see a folder *export_model*. In your codes, just change your path to point to the *saved_model* subfolder of the *export_model*
