@@ -1,4 +1,4 @@
-### Annotating images (Optional if you want to annotate your own images)
+### Annotating images 
 
 To annotate images, we will be using the labelImg package. For installation and usage instruction, please refer to [LabelImg github repo](https://github.com/tzutalin/labelImg)
 
