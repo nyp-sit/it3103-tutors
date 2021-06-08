@@ -1,33 +1,9 @@
-# Annotating images (Optional if you want to annotate your own images)
+### Annotating images (Optional if you want to annotate your own images)
 
-## CVAT
+To annotate images, we will be using the labelImg package. For installation and usage instruction, please refer to [LabelImg github repo](https://github.com/tzutalin/labelImg)
 
-You can use CVAT (Computer Vision Annotation Tool) to annotate images. CVAT supports a variety of annotation tasks, such as bounding box and segmentation. You can install CVAT on your own desktop (as a docker container) by following the instructions at  https://github.com/openvinotoolkit/cvat/blob/develop/cvat/apps/documentation/installation.md.  Alternatively, you can use the online CVAT for your annotation tasks, by registering an account at https://cvat.org The online CVAT however has the following limitations: 
+Once you have collected all the images to be used to train your model (ideally more than 100 per class), place them inside a folder e.g. balloon_dataset. It is good practice to name your files with a sequence number for easy processing later on, e.g. balloon-1.jpg, balloon-2.jpg, etc. Choose PascalVOC format for your annotations. Start annotating, and you should have an .xml file generated for each of the image you annotate. 
 
-- No more than 10 tasks per user 
-- Maximum 500MB of data
+Zip up all the files inside the directory (e.g. balloon_dataset) and upload the zip file to your cloud VM. Follow the instructions given in the custom_training_with_tfod_api.md file to generate appropriate train and validation set.
 
-CVAT supports a variety of annotation format, including COCO, PASCAL VOC, YOLO to name just a few. 
-
-For our lab exercise, we will use COCO format as it supports both bounding boxes and segmentation for object detection. 
-
-## How to use? 
-
-You can watch the following videos on how to use CVAT for annotation: 
-
-Bounding Box: https://www.youtube.com/watch?v=OMgQ2JzOAWA 
-
-Segmentation: https://www.youtube.com/watch?v=9Fe_GzMLo3E
-
-
-
-## Organizing your Dataset 
-
-It is good practice to name your image files with a sequence number for easy processing later on, e.g. balloon-1.jpg, balloon-2.jpg, etc.
-
-You should separate your images into train and validation set.  Create two different tasks for training set annotation and validation set annotation. 
-
-Once you have finished your annotation, you can either export the annotation file (which is a JSON file) or export the dataset (which includes both the annotation and images). 
-
-It is recommended you export as a dataset as the zip file contains the folder structure that we can just copy over to the project folder. 
-
+Copy all images, together with their corresponding `*.xml` files, and place them inside the ``images`` folder and ``annotations`` folder of your project data directory (e.g. data/images, data/annotations)
