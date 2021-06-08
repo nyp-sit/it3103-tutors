@@ -62,7 +62,6 @@ As we will be dealing with a lot of different files, such as training config fil
 
 ```
 cp -r ~/temp-git/it3103/week5/balloon_project ~/balloon_project
-
 ```
 
 
@@ -73,10 +72,9 @@ following structure is used for our project.
 balloon_project
 -annotations
 -data
+ -images
+ -annotations
 -exported-models
--images
- - train
- - val
 -models
 -pretrained-models
 ```
@@ -84,10 +82,10 @@ balloon_project
 The folders will be used for storing the files mentioned below:
 
 - ``balloon_project/``: the root folder of the project
-- ``balloon_project/annotations``: the annotation files in COCO json format
 - ``balloon_project/data/``: label mapping file (label_map..pbtxt) and TFRecords (e.g. train.record, val.record)
 - ``balloon_project/exported-models``: used to store the custom trained model, in SavedModel format.
-- ``balloon_project/images``: used to store the train images and validation images, respectively in ``train`` and ``val`` folder
+- ``balloon_project/data/images``: used to store the images
+- ``balloon_project/data/annotations``: the annotation files in Pascal VOC XML format
 - ``balloon_project/models``: for storing the training checkpoints of different models (e.g. you can have one subfolder ``models/ssd_resnet101_v1_fpn_640x640_coco17_tpu-8`` for training model based on ``ssd_resnet`` pretrained model and ``models/ssd_mobilenet_v2_320x320_coco17_tpu-8`` for model based on ``ssd_mobilenet`` pretrained model.  Each of the subfolder also contains the pipeline.config file which is the configuration file used for training and evaluating the detection model.
 - ``balloon_project/pretrained_models``: the pretrained model checkpoints that you downloaded (use different subfolder for different pretrained-models).
 
@@ -97,44 +95,45 @@ The folders will be used for storing the files mentioned below:
 Let's use an existing data set that is already annotated for this exercise. To download the data, type the following in the terminal (the bash shell):
 
 ```bash
-wget https://nyp-aicourse.s3-ap-southeast-1.amazonaws.com/datasets/balloon_dataset_coco.zip
+wget https://nyp-aicourse.s3-ap-southeast-1.amazonaws.com/datasets/balloon_dataset_pascalvoc.zip
 ```
 
 Unzip the file to the a folder (e.g. balloon_dataset): 
 
 ```
-unzip balloon_dataset_coco.zip -d /home/ubuntu/balloon_dataset
+unzip balloon_dataset_pascalvoc.zip -d /home/ubuntu/balloon_dataset
 ```
 
-You will see the following folders (among other folders)
+You will see a list of jpg files (the images) and xml files (the Pascal VOC format annotation files), like below: 
 
 ```
 balloon_dataset
--annotations
--images
- -train
- -val
+-balloon-1.jpg
+-balloon-1.xml
+-balloon-2.jpg
+-balloon-2.xml
+...
 ```
 
-Examine the image files in train and val. You will notice that the files are named ``balloon-1.jpg, balloon-2.jpg, ...``  and so on. It is a good practice to name your image files with certain fixed pattern like this so that you can write script to process them more easily (e.g. splitting into train/val dataset, shuffling, sorting, etc)
+You will notice that the files are named ``balloon-1.jpg, balloon-2.jpg, ...``  and so on. It is a good practice to name your image files with certain fixed pattern like this so that you can write script to process them more easily (e.g. splitting into train/val dataset, shuffling, sorting, etc)
 
 ### Copy the images and annotation files to project folder
 
-From the ``balloon_dataset/images`` directory, copy training image files (a total of 61 images) and validation images (a total of 13 images)  in `train` and ``val``  to ``balloon_project/images/`` respectively.  Type the following in the terminal:
+From the ``balloon_dataset`` directory, copy image files (a total of 74 images) to ``balloon_project/data/images/`` respectively.  Type the following in the terminal:
 
 ```
-cp  -r ~/balloon_dataset/images/*  ~/balloon_project/images/
+cp  ~/balloon_dataset/*.jpg  ~/balloon_project/data/images/
 ```
 
-From the ``balloon_dataset/annotations directory``, copy all the .json files  to `balloon_project/annotations`. 
+From the ``balloon_dataset``, copy all the .xml files  to `balloon_project/data/annotations`. 
 
 ```
-cp ~/balloon_dataset/annotations/*  ~/balloon_project/annotations/
+cp ~/balloon_dataset/*.xml  ~/balloon_project/data/annotations/
 ```
 
-*Note:* In linux, the tilde sign `~` is just a shortcut to home folder, i.e /home/ubuntu in our case.
+*Note:* In linux, the tilde sign `~` is just a shortcut to home folder, i.e. /home/ubuntu in our case.
 
-You can also collect your own images and annotate them using tools such as CVAT. Refer to ``annotation.md`` for some instructions on how to use it.
+You can also collect your own images and annotate them using tools such as LabelImg. Refer to ``annotation.md`` for some instructions on how to use it.
 
 ## Create Label Map
 
@@ -178,18 +177,15 @@ TFOD API requires the training/validation data to be stored as TF Records (binar
 From the lab folder, run the following python script to convert the data (images and annotations) to TFRecords: 
 
 ``` bash
-TRAIN_IMAGE_DIR=/home/ubuntu/balloon_project/images/train
-VAL_IMAGE_DIR=/home/ubuntu/balloon_project/images/val
-TRAIN_ANNOTATIONS_FILE=/home/ubuntu/balloon_project/annotations/balloon_train_annotations.json
-VAL_ANNOTATIONS_FILE=/home/ubuntu/balloon_project/annotations/balloon_val_annotations.json
+DATA_DIR=/home/ubuntu/balloon_project/data
+LABELMAP=/home/ubuntu/balloon_project/data/label_map.pbtxt
 OUTPUT_DIR=/home/ubuntu/balloon_project/data
+TEST_RATIO=0.2
 
-python create_tf_records.py --logtostderr \
-      --train_image_dir="${TRAIN_IMAGE_DIR}" \
-      --val_image_dir="${VAL_IMAGE_DIR}" \
-      --train_annotations_file="${TRAIN_ANNOTATIONS_FILE}" \
-      --val_annotations_file="${VAL_ANNOTATIONS_FILE}" \
-      --include_masks=FALSE \
+python create_tf_records_voc.py \
+      --data_dir="${DATA_DIR}" \
+      --label_map="${LABELMAP}" \
+      --test_ratio="${TEST_RATIO}" \
       --output_dir="${OUTPUT_DIR}"
 ```
 
@@ -197,7 +193,7 @@ To save you from typing, a shell script ``create_tf.sh`` has been provided.  Mak
 
 ```
 cd ~/balloon_project 
-./create_tf.sh 
+./create_tf_voc.sh 
 ```
 
 You will see that two records created in the directory ~/balloon_project/data:  
