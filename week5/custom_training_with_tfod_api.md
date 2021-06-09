@@ -296,7 +296,22 @@ If you want to find out more information on configuring the pipeline, please ref
 for more information.
 
 
+## PRE-CHECK Before Training
+
+Before you start training, make sure your tensorflow can detect and use the GPU, if not, it will fallback on CPU for training and your training will take forever to finish. 
+
+```
+# start the python interpretor by typing python at the terminal. make sure you are in tf2env 
+python 
+>>import tensorflow as tf
+>>tf.test.is_gpu_available()
+True
+```
+
+If the output is False, inform your teacher to see what is the problem. 
+
 ## Start the training 
+
 
 You can start the training by running `model_main2.py` from the directory 
 `tensorflow/models/research directory`, and passing the various parameters such as config path, the directory to save the model checkpoints to, etc. 
