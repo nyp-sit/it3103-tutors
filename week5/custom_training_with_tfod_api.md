@@ -189,7 +189,7 @@ python create_tf_records_voc.py \
       --output_dir="${OUTPUT_DIR}"
 ```
 
-To save you from typing, a shell script ``create_tf.sh`` has been provided.  Make sure all the paths are correct and then run the shell script as follows: 
+To save you from typing, a shell script ``create_tf_voc.sh`` has been provided.  Make sure all the paths are correct and then run the shell script as follows: 
 
 ```
 cd ~/balloon_project 
