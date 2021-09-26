@@ -382,7 +382,7 @@ You can monitor progress of the training and eval jobs by running Tensorboard on
 Open another terminal and run the tensorboard, specifying the model directory as logdir. Remember to ``conda activate tf2env`` before you run the tensorboard.
 
 ```
-tensorboard --logdir=/home/ubuntu/balloon_project/models/ssd_mobilenet_v2_320x320_coco17_tpu-8
+tensorboard --bind_all --logdir=/home/ubuntu/balloon_project/models/ssd_mobilenet_v2_320x320_coco17_tpu-8
 ```
 
 Once Tensorboard is running, navigate to `<cloudVM-IPaddress>:6006` from your favourite web browser. 
