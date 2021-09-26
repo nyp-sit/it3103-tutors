@@ -193,7 +193,7 @@ To save you from typing, a shell script ``create_tf_voc.sh`` has been provided. 
 
 ```
 cd ~/balloon_project 
-./create_tf_voc.sh 
+bash create_tf_voc.sh 
 ```
 
 You will see that two records created in the directory ~/balloon_project/data:  
@@ -364,7 +364,7 @@ Open a new terminal and do the following:
 conda activate tf2env
 export CUDA_VISIBLE_DEVICES=""
 cd ~/balloon_project/
-./eval.sh
+bash eval.sh
 ```
 
 What we are doing here is to tell the tensorflow that we don't have any CUDA-capable device to use, and it will fall back to using only CPU. 
