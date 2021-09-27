@@ -331,6 +331,13 @@ python /home/ubuntu/git/tensorflow/models/research/object_detection/model_main_t
 
 A script (`train.sh`) that contains the above has been created to avoid typing this repeatedly. Modify the script to change the MODEL accordingly, if you are using another pretrained model e.g. ``ssd_resnet101_v1_fpn_640x640_coco17_tpu-8``.
 
+In the terminal, type the following: 
+
+```
+cd ~/balloon_project 
+bash train.sh 
+```
+
 After the script is run, you may see a lot of warning messages and you can safely ignore those (most of them are due to deprecation warning). 
 If everything goes smoothly, you will start seeing the following training output:
 
