@@ -12,7 +12,7 @@ At the end of this exercise, you will be able to:
 
 ***Pre-requisites***
 
-If you are using the cloud VM provided, you can skill the following installation steps as all the necessary pre-requisites have already been installed.
+If you are using the cloud VM provided, you can skip the following installation steps as all the necessary pre-requisites have already been installed.
 
 You need to first clone the TFOD repo to your machine:
 
@@ -50,7 +50,7 @@ python object_detection/builders/model_builder_tf2_test.py
 
 - Some familiarity with Linux shell command is required for this lab.
 - If you are using the Cloud VM provided, the TFOD API and its required libraries has been installed
-and configured. Make sure you use the ``tf2env`` conda environment, i..e in your terminal, always remember to ``conda activate tf2env``. 
+and configured. 
 - The commands below assumed you are using Bash shell on Linux. 
 - The referenced paths and the instructions below assumes you are using the Cloud VM provided.
 - ``lab folder`` in the instructions below refers to the folder where this practical is located.
@@ -58,10 +58,10 @@ and configured. Make sure you use the ``tf2env`` conda environment, i..e in your
 
 ## Create the project folder structure
 
-As we will be dealing with a lot of different files, such as training config files, models, annotation files and images, it is important to have certain folder structure to organise all of these. A project folder has been created for you and you can copy the folder ``balloon_project`` from  IT3103 git repo to the home folder. By default, your IT3103 git is located at ``/home/ubuntu/temp-git ``. Run the following command to copy the folder: 
+As we will be dealing with a lot of different files, such as training config files, models, annotation files and images, it is important to have certain folder structure to organise all of these. A project folder has been created for you and you can copy the folder ``balloon_project`` from  IT3103 git repo to the home folder. By default, your IT3103 git is located at ``/home/ubuntu/git ``. Run the following command to copy the folder: 
 
 ```
-cp -r ~/temp-git/it3103/week5/balloon_project ~/balloon_project
+cp -r ~/git/it3103/week5/balloon_project ~/balloon_project
 ```
 
 
@@ -301,7 +301,7 @@ for more information.
 Before you start training, make sure your tensorflow can detect and use the GPU, if not, it will fallback on CPU for training and your training will take forever to finish. 
 
 ```
-# start the python interpretor by typing python at the terminal. make sure you are in tf2env 
+# start the python interpretor by typing python at the terminal. 
 python 
 >>import tensorflow as tf
 >>tf.test.is_gpu_available()
@@ -368,7 +368,6 @@ To save you from typing repeatedly the commands above, an ``eval.sh`` is provide
 Open a new terminal and do the following:
 
 ```
-conda activate tf2env
 export CUDA_VISIBLE_DEVICES=""
 cd ~/balloon_project/
 bash eval.sh
@@ -386,7 +385,7 @@ Now it is time to grab your coffee, sit back and relax :)
 
 You can monitor progress of the training and eval jobs by running Tensorboard on your local machine:
 
-Open another terminal and run the tensorboard, specifying the model directory as logdir. Remember to ``conda activate tf2env`` before you run the tensorboard.
+Open another terminal and run the tensorboard, specifying the model directory as logdir. 
 
 ```
 tensorboard --bind_all --logdir=/home/ubuntu/balloon_project/models/ssd_mobilenet_v2_320x320_coco17_tpu-8
